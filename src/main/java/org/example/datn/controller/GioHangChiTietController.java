@@ -25,7 +25,10 @@ public class GioHangChiTietController {
     @Autowired
     GioHangChiTietProcessor processor;
 
-
+    @PostMapping()
+    public ResponseEntity<ServiceResult> addGioHangChiTiet(@RequestBody GioHangChiTietRequest request, UserAuthentication ua) {
+        return ResponseEntity.ok(processor.save(request, ua));
+    }
 
     @PutMapping("/{id}")
     public ResponseEntity<ServiceResult> updateGioHangChiTiet(@PathVariable Long id, @RequestBody GioHangChiTietRequest request, UserAuthentication ua) {

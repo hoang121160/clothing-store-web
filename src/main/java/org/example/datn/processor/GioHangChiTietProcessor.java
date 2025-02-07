@@ -54,6 +54,48 @@ public class GioHangChiTietProcessor {
     @Autowired
     private KhuyenMaiService khuyenMaiService;
 
+    @Transactional(rollbackOn = Exception.class)
+    public ServiceResult save(GioHangChiTietRequest request, UserAuthentication ua) {
+
+        var gioHang = gioHangService.findByIdNguoiDung(ua.getPrincipal()).orElseThrow(() -> new EntityNotFoundException("Không tìm thấy người dùng"));
+        var sanPham = sanPhamService.findById(request.getIdSanPham()).orElseThrow(() -> new EntityNotFoundException("Không tìm thấy thông tin sản phẩm"));
+        var spct = spctService.findByIdSanPhamAndIdSizeAndIdMauSac(request.getIdSanPham(), request.getIdSize(), request.getIdMauSac())
+                .orElseThrow(() -> new EntityNotFoundException("Không tìm thấy thông tin sản phẩm"));
+        var soLuongConLai = spct.getSoLuong();
+        if (request.getSoLuong() > soLuongConLai) {
+            throw new IllegalArgumentException("Số lượng yêu cầu vượt quá số lượng tồn kho.");
+        }
+        service.findByIdGioHangAndIdSanPhamChiTietAndTrangThai(gioHang.getId(), spct.getId(), StatusGioHang.CHUA_DAT_HANG.getValue()).ifPresent(g -> {
+            if (request.getSoLuong() + g.getSoLuong() > soLuongConLai) {
+                throw new IllegalArgumentException("Số lượng yêu cầu vượt quá số lượng tồn kho.");
+            }
+        });
+        var gioHangChiTiet = service.findByIdGioHangAndIdSanPhamChiTietAndTrangThai(gioHang.getId(), spct.getId(), StatusGioHang.CHUA_DAT_HANG.getValue());
+
+        if (gioHangChiTiet.isPresent()) {
+            var currentQuantity = gioHangChiTiet.get().getSoLuong();
+            var newQuantity = currentQuantity + request.getSoLuong();
+
+            gioHangChiTiet.get().setSoLuong(newQuantity);
+            gioHangChiTiet.get().setNgayCapNhat(LocalDateTime.now());
+            service.save(gioHangChiTiet.get());
+
+        } else {
+            GioHangChiTiet ghct = new GioHangChiTiet();
+            BeanUtils.copyProperties(request, ghct);
+            ghct.setIdGioHang(gioHang.getId());
+            ghct.setIdSanPhamChiTiet(spct.getId());
+            ghct.setGia(sanPham.getGia());
+            ghct.setIdSanPhamChiTiet(spct.getId());
+            ghct.setTrangThai(StatusGioHang.CHUA_DAT_HANG.getValue());
+            ghct.setNguoiTao(ua.getPrincipal());
+            ghct.setNgayTao(LocalDateTime.now());
+            ghct.setNgayCapNhat(LocalDateTime.now());
+            ghct.setNguoiCapNhat(ua.getPrincipal());
+            service.save(ghct);
+        }
+        return new ServiceResult();
+    }
 
     @Transactional(rollbackOn = Exception.class)
     public ServiceResult update(Long id, GioHangChiTietRequest request, UserAuthentication ua) {
