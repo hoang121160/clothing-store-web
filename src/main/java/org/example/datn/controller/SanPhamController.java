@@ -63,10 +63,7 @@ public class SanPhamController {
         return ResponseEntity.ok(processor.delete(id));
     }
 
-    @PostMapping("/search")
-    public ResponseEntity<ServiceResult> searchProducts(@RequestBody SanPhamRequest request) {
-        return ResponseEntity.ok(processor.searchProducts(request));
-    }
+
 
     @Autowired
     private SanPhamService sanPhamService;
