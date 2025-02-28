@@ -2,11 +2,9 @@ package org.example.datn.processor;
 
 import org.example.datn.constants.SystemConstant;
 import org.example.datn.entity.MauSac;
-import org.example.datn.entity.Size;
 import org.example.datn.model.ServiceResult;
 import org.example.datn.model.UserAuthentication;
 import org.example.datn.service.MauSacService;
-import org.example.datn.service.SizeService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

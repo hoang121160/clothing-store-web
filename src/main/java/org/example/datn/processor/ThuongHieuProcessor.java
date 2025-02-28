@@ -1,18 +1,11 @@
 package org.example.datn.processor;
 
 import org.example.datn.constants.SystemConstant;
-import org.example.datn.entity.DanhMuc;
-import org.example.datn.entity.MauSac;
 import org.example.datn.entity.Thuonghieu;
 import org.example.datn.model.ServiceResult;
 import org.example.datn.model.UserAuthentication;
-import org.example.datn.model.request.DanhMucRequest;
-import org.example.datn.model.request.ThuongHieuRequest;
-import org.example.datn.model.response.DanhMucModel;
 import org.example.datn.model.response.ThuongHieuModel;
-import org.example.datn.service.DanhMucService;
 import org.example.datn.service.ThuongHieuService;
-import org.example.datn.transformer.DanhMucTransformer;
 import org.example.datn.transformer.ThuongHieuTransformer;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -378,8 +378,8 @@ public class SanPhamProcessor {
     }
 
     //////////////////thống kê ////////////////
-//    @Autowired
-//    private HoaDonChiTietService hoaDonChiTietService;
+    @Autowired
+    private HoaDonChiTietService hoaDonChiTietService;
 
     @Autowired
     private SanPhamService sanPhamService;

@@ -1,13 +1,8 @@
 package org.example.datn.controller;
 
-import org.example.datn.entity.DanhMuc;
-import org.example.datn.entity.Size;
 import org.example.datn.entity.Thuonghieu;
 import org.example.datn.model.ServiceResult;
 import org.example.datn.model.UserAuthentication;
-import org.example.datn.model.request.DanhMucRequest;
-import org.example.datn.model.request.ThuongHieuRequest;
-import org.example.datn.processor.DanhMucProcessor;
 import org.example.datn.processor.ThuongHieuProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

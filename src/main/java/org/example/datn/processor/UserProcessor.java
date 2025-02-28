@@ -22,10 +22,13 @@ import org.example.datn.model.response.SessionModel;
 import org.example.datn.model.response.UserModel;
 import org.example.datn.processor.auth.AuthenticationChannelProvider;
 import org.example.datn.processor.auth.AuthoritiesValidator;
+import org.example.datn.repository.UserRepository;
 import org.example.datn.service.*;
 import org.example.datn.transformer.ProfileTransformer;
 import org.example.datn.transformer.UserTransformer;
+import org.example.datn.utils.CalendarUtil;
 import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
 import org.apache.commons.lang3.StringUtils;
@@ -33,6 +36,7 @@ import org.apache.commons.lang3.StringUtils;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 
+import static org.example.datn.utils.CalendarUtil.*;
 import static org.example.datn.utils.CalendarUtil.DateTimeUtils.now;
 
 import java.math.BigDecimal;

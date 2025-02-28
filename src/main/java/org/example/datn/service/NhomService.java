@@ -3,10 +3,13 @@ package org.example.datn.service;
 import javax.persistence.EntityManager;
 
 import org.example.datn.entity.Nhom;
+import org.example.datn.model.request.GroupQueryModel;
 import org.example.datn.repository.NhomRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

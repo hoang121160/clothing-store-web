@@ -7,16 +7,12 @@ import org.example.datn.constants.SystemConstant;
 import org.example.datn.model.ServiceResult;
 import org.example.datn.model.UserAuthentication;
 import org.example.datn.model.response.SanPhamChiTietModel;
-import org.example.datn.model.response.SanPhamModel;
 import org.example.datn.processor.SanPhamChiTietProcessor;
-import org.example.datn.entity.SanPhamChiTiet;
 import org.example.datn.service.SanPhamChiTietService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/spct")

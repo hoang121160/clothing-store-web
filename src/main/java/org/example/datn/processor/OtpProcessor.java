@@ -18,6 +18,7 @@ import org.springframework.stereotype.Component;
 import org.example.datn.utils.CalendarUtil.*;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Predicate;
@@ -95,8 +96,8 @@ public class OtpProcessor {
             String code = RandomStringUtils.randomNumeric(OTP_LENGTH);
             Otp otp = new Otp();
             otp.setCode(code);
-            otp.setExpired(now().plusMinutes(OTP_EXPIRED_MIN));
-            otp.setCreated(now());
+            otp.setExpired(DateTimeUtils.now().plusMinutes(OTP_EXPIRED_MIN));
+            otp.setCreated(DateTimeUtils.now());
             otp.setReceiver(email);
             otp.setType(OtpType.RESET_PASSWORD);
             emailService.sendResetPasswordEmail(

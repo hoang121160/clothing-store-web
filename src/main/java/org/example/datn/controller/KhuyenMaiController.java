@@ -1,25 +1,19 @@
 package org.example.datn.controller;
 
-import org.example.datn.entity.ChatLieu;
-import org.example.datn.entity.DanhMuc;
 import org.example.datn.entity.KhuyenMai;
 import org.example.datn.exception.DuplicatedException;
 import org.example.datn.model.ServiceResult;
 import org.example.datn.model.UserAuthentication;
-import org.example.datn.model.request.DanhMucRequest;
 import org.example.datn.model.request.KhuyenMaiCreateUpdateRequest;
 import org.example.datn.model.request.KhuyenMaiQuery;
-import org.example.datn.model.request.KhuyenMaiRequest;
-import org.example.datn.processor.ChatLieuProcessor;
-import org.example.datn.processor.DanhMucProcessor;
 import org.example.datn.processor.KhuyenMaiProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+//@CrossOrigin("*")
 @RestController("KhuyenMaiApi")
 @RequestMapping("/khuyen-mai")
 public class KhuyenMaiController {

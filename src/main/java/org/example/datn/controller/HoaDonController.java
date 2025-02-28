@@ -1,17 +1,13 @@
 package org.example.datn.controller;
 
-import org.example.datn.entity.DanhMuc;
 import org.example.datn.exception.DuplicatedException;
 import org.example.datn.exception.InputInvalidException;
 import org.example.datn.exception.NotFoundEntityException;
 import org.example.datn.model.ServiceResult;
 import org.example.datn.model.UserAuthentication;
 import org.example.datn.model.request.CancelOrderRequest;
-import org.example.datn.model.request.DanhMucRequest;
 import org.example.datn.model.request.HoaDonChiTietRequest;
 import org.example.datn.model.request.HoaDonRequest;
-import org.example.datn.model.response.HoaDonModel;
-import org.example.datn.processor.DanhMucProcessor;
 import org.example.datn.processor.HoaDonProcessor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

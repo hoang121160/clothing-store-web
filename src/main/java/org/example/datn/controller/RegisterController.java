@@ -4,7 +4,6 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.example.datn.exception.DuplicatedException;
-import org.example.datn.exception.InputInvalidException;
 import org.example.datn.model.ServiceResult;
 import org.example.datn.model.request.RegisterModel;
 import org.example.datn.processor.UserProcessor;

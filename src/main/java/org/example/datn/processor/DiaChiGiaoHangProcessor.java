@@ -7,9 +7,7 @@ import org.example.datn.model.ServiceResult;
 import org.example.datn.model.UserAuthentication;
 import org.example.datn.model.request.DiaChiGiaoHangRequest;
 import org.example.datn.model.response.DiaChiGiaoHangModel;
-import org.example.datn.model.response.UserModel;
 import org.example.datn.service.DiaChiGiaoHangService;
-import org.example.datn.service.UserService;
 import org.example.datn.transformer.DiaChiGiaoHangTransformer;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +17,6 @@ import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Comparator;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
